@@ -4,8 +4,8 @@ public class Ref {
 
     // For Title
     public static final String COMPANY_NAME = "All American Steel";
-    public static final String VERSION = "0.3.0b";
-    public static final String VERSION_DATE = "04/08/2018";
+    public static final String VERSION = "0.4.0b";
+    public static final String VERSION_DATE = "04/16/2018";
 
     // Screen Starting Size
     public static final int WIDTH = 850;
@@ -28,7 +28,6 @@ public class Ref {
     // Byte addresses for Balance Label
     public static final int PO_BYTE_BAL = 5321;
     public static final int BALANCE_BYTE_BAL = 5354;
-
 
 
     // Byte addresses for SO Label
@@ -55,5 +54,7 @@ public class Ref {
     public static final int SO_LABELS = 1;
 
     public static final boolean DEBUG_ENABLED = false;
+    public static final boolean DISABLE_PRINTING = false;
+    public static final boolean ENABLE_FILL = false;
 }
 

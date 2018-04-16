@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -22,12 +25,5 @@ public class Main extends Application {
         primaryStage.show();
 
 
-    }
-
-
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

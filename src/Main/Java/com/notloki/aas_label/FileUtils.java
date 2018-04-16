@@ -15,10 +15,10 @@ public class FileUtils {
         File f = new File(file);
         RandomAccessFile raf = new RandomAccessFile(file, "rwd");
 
-        if(bp == null || bp.isEmpty() || bp.length() > 8) {
+        if (bp == null || bp.isEmpty() || bp.length() > 8) {
             bp = "      ";
         }
-        if(poNumber == null || poNumber.isEmpty() || poNumber.length() > 8) {
+        if (poNumber == null || poNumber.isEmpty() || poNumber.length() > 8) {
             poNumber = "        ";
         }
 
@@ -31,35 +31,31 @@ public class FileUtils {
     }
 
 
-
     public void savePrintFileSO(String file,
                                 String custName, String jobName,
                                 String poNumber, String location, ArrayList<Data> lengthList,
-                                ArrayList<Integer> byteList) throws  IOException {
-
-
+                                ArrayList<Integer> byteList) throws IOException {
 
 
         RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-        if(custName == null || custName.isEmpty()) {
+        if (custName == null || custName.isEmpty()) {
             custName = "               ";
-        } else {
-
         }
-        if(jobName == null || jobName.isEmpty()) {
+
+        if (jobName == null || jobName.isEmpty()) {
             jobName = "               ";
         }
-        if(location == null || location.isEmpty()) {
+        if (location == null || location.isEmpty()) {
             location = "               ";
         }
-        if(poNumber == null || poNumber.isEmpty() || poNumber.length() > 8) {
+        if (poNumber == null || poNumber.isEmpty() || poNumber.length() > 8) {
             poNumber = "        ";
         }
 
         Data blank = new Data();
-        if(lengthList.size() < 12) {
+        if (lengthList.size() < 12) {
             int count = lengthList.size();
-            while(count <=12) {
+            while (count <= 12) {
                 count++;
                 blank.setQty("              ");
                 lengthList.add(blank);
@@ -69,14 +65,14 @@ public class FileUtils {
         ListIterator lengthByteIterator = byteList.listIterator();
         int temp;
 
-            while(lengthByteIterator.hasNext()) {
-                temp = Integer.valueOf(lengthByteIterator.next().toString());
-                if(Ref.DEBUG_ENABLED) {
-                    System.out.println(temp);
-                }
-                raf.seek(temp);
-                raf.write(addSpace(lengthListIterator.next().toString(), 14).getBytes(), 0, 14);
+        while (lengthByteIterator.hasNext()) {
+            temp = Integer.valueOf(lengthByteIterator.next().toString());
+            if (Ref.DEBUG_ENABLED) {
+                System.out.println(temp);
             }
+            raf.seek(temp);
+            raf.write(addSpace(lengthListIterator.next().toString(), 14).getBytes(), 0, 14);
+        }
 
         raf.seek(Ref.CUST_NAME_BYTE_SO);
         raf.write(addSpace(custName, 15).getBytes(), 0, 15);
@@ -85,7 +81,7 @@ public class FileUtils {
         raf.write(addSpace(jobName, 15).getBytes(), 0, 15);
 
         raf.seek(Ref.LOCATION_BYTE_SO);
-        raf.write(addSpace(location,15).getBytes(), 0, 15);
+        raf.write(addSpace(location, 15).getBytes(), 0, 15);
 
         raf.seek(Ref.PO_BYTE_SO);
         raf.write(poNumber.getBytes(), 0, 8);
@@ -94,7 +90,7 @@ public class FileUtils {
     }
 
     private String addSpace(String string, int length) {
-        while(string.length() < length) {
+        while (string.length() < length) {
             string += " ";
         }
         return string;
