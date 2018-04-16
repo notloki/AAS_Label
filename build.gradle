@@ -1,0 +1,44 @@
+
+
+apply plugin: 'java'
+
+apply plugin: 'idea'
+
+version = '0.3.0b'
+
+group = 'com.notloki.aas_label'
+
+archivesBaseName = "aas_label"
+
+sourceCompatibility = targetCompatibility = '1.8'
+
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+configurations {
+
+}
+
+jar {
+
+
+
+
+    manifest {
+        attributes 'Main-Class': 'com.notloki.aas_label.Main'
+    }
+}
+
+
+
